@@ -1,5 +1,5 @@
 {
-  "type":"module",
+  "type": "module",
   "name": "primepubsub",
   "version": "1.0.0",
   "description": "",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/AssafSuliman/PrimePubSub/issues"
   },
-  "homepage": "https://github.com/AssafSuliman/PrimePubSub#readme"
+  "homepage": "https://github.com/AssafSuliman/PrimePubSub#readme",
+  "dependencies": {
+    "chalk": "^5.0.1"
+  }
 }
