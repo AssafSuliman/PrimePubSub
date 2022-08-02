@@ -9,7 +9,15 @@ const prime1 = new PrimeLastDigit()
 generator.on('start', mersenne.checkIfMersenne)
 generator.on('start', prime1.lastDigitIs1)
 
-generator.generatePrimes(100)
+const primeNumbers = generator.generatePrimes(50)
+let myInterval = setInterval(() => {
+  primeNumbers.next().value
+  if(!primeNumbers.next().value) clearInterval(myInterval)
+}, 1000)
+
+/* const nums = [...primeNumbers]
+console.log(nums);
+ */
 
 
 
