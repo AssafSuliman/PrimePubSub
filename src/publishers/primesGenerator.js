@@ -1,17 +1,16 @@
 import Event from '../common/myEvent.js'
+import EventEmitter from "events"
 
-class Generator extends Event{
+
+class Generator extends EventEmitter{
     
-    generatePrimes(number, currentNumber = 3) {
-        if (number === currentNumber ) return
+    *generatePrimes(number) {
         if (number === 2) this.emit('start', number)
-        if (number > 2){
-          if(this.isPrime(currentNumber)){
-            this.emit('start', currentNumber)
-            setTimeout(() =>
-            this.generatePrimes(number, currentNumber+1), 1000)
+        for(let j = 3; j <= number; j++){
+          if(this.isPrime(j)){
+            yield j
+            this.emit('start', j)
           }
-          else this.generatePrimes(number, currentNumber+1)
         }
       
     }
@@ -32,4 +31,19 @@ export default Generator
     yield j
     this.emit('start', j)
   }
+} */
+
+
+/* generatePrimes(number, currentNumber = 3) {
+  if (number === currentNumber ) return
+  if (number === 2) this.emit('start', number)
+  if (number > 2){
+    if(this.isPrime(currentNumber)){
+      this.emit('start', currentNumber)
+      setTimeout(() =>
+      this.generatePrimes(number, currentNumber+1), 1000)
+    }
+    else this.generatePrimes(number, currentNumber+1)
+  }
+
 } */
