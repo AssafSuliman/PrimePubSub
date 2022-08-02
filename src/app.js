@@ -9,9 +9,7 @@ const prime1 = new PrimeLastDigit()
 generator.on('start', mersenne.checkIfMersenne)
 generator.on('start', prime1.lastDigitIs1)
 
-for(let number of generator.generatePrimes(100)){
-
-}
+generator.generatePrimes(100)
 
 
 
