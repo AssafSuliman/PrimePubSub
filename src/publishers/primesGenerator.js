@@ -5,8 +5,7 @@ import EventEmitter from "events"
 class Generator extends EventEmitter{
     
     *generatePrimes(number) {
-        if (number === 2) this.emit('start', number)
-        for(let j = 3; j <= number; j++){
+        for(let j = 2; j <= number; j++){
           if(this.isPrime(j)){
             yield j
             this.emit('start', j)
@@ -16,10 +15,11 @@ class Generator extends EventEmitter{
     }
     
     isPrime(j) {
-        for(let i = 2; i < (j/2 + 1); i++){
+        if(j === 2) return true
+        for(let i = 2; i <= (Math.sqrt(j)); i++){
           if(j % i === 0) return false
-          if(i > j/2) return true
         }
+        return true
     }
 
 }
