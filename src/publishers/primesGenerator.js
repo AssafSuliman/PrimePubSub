@@ -7,8 +7,10 @@ class Generator extends Event{
         for(let j = 3; j <= number; j++){
           if(this.isPrime(j)){
             yield j
+            this.emit('start', j)
           }
         }
+      
     }
     
     isPrime(j) {
@@ -17,9 +19,7 @@ class Generator extends Event{
           if(i > j/2) return true
         }
     }
-}
-const generator1 = new Generator()
 
-for(let value of generator1.generatePrimes(11)){
-  console.log(value)
 }
+
+export default Generator
